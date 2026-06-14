@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word to PDF Converter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- HEADER (Demo code - to be customized) -->
+    <header>
+        <div class="header-container">
+            <h1>Tools Suite</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#tools">Tools</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="container">
+        <section class="tool-section">
+            <h2>Word to PDF Converter</h2>
+            <p class="tool-description">Convert your Word documents (.docx) to PDF with advanced formatting options</p>
+
+            <!-- File Input Section -->
+            <div class="input-section">
+                <div class="file-upload-container">
+                    <label for="wordFile" class="file-label">Select Word File (.docx)</label>
+                    <input type="file" id="wordFile" accept=".docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document" class="file-input">
+                    <div class="file-info" id="fileInfo"></div>
+                </div>
+            </div>
+
+            <!-- Advanced Options Section -->
+            <div class="advanced-options">
+                <button class="toggle-btn" id="advancedToggle">
+                    <span class="toggle-icon">▼</span>
+                    Advanced Options
+                </button>
+                
+                <div class="options-container" id="optionsContainer" style="display: none;">
+                   
+                    <!-- Margin Settings -->
+                    <div class="option-group">
+                        <label>Margin Settings (inches)</label>
+                        <div class="option-item">
+                            <label for="marginTop">Top:</label>
+                            <input type="number" id="marginTop" min="0" max="2" value="1" step="0.1">
+                        </div>
+                        <div class="option-item">
+                            <label for="marginBottom">Bottom:</label>
+                            <input type="number" id="marginBottom" min="0" max="2" value="1" step="0.1">
+                        </div>
+                        <div class="option-item">
+                            <label for="marginLeft">Left:</label>
+                            <input type="number" id="marginLeft" min="0" max="2" value="1" step="0.1">
+                        </div>
+                        <div class="option-item">
+                            <label for="marginRight">Right:</label>
+                            <input type="number" id="marginRight" min="0" max="2" value="1" step="0.1">
+                        </div>
+                    </div>
+
+                    <!-- Page Settings -->
+                    <div class="option-group">
+                        <label>Page Settings</label>
+                        <div class="option-item">
+                            <label for="pageOrientation">Orientation:</label>
+                            <select id="pageOrientation">
+                                <option value="portrait">Portrait</option>
+                                <option value="landscape">Landscape</option>
+                            </select>
+                        </div>
+                        <div class="option-item">
+                            <label for="pageSize">Page Size:</label>
+                            <select id="pageSize">
+                                <option value="A4">A4</option>
+                                <option value="Letter">Letter</option>
+                                <option value="Legal">Legal</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Additional Options -->
+                    <div class="option-group">
+                        <label>Additional Options</label>
+                        <div class="option-item checkbox">
+                            <input type="checkbox" id="compressImages">
+                            <label for="compressImages">Compress Images</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Processing Status -->
+            <div class="status-section" id="statusSection" style="display: none;">
+                <div class="status-message" id="statusMessage"></div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="button-group">
+                <button class="btn btn-primary" id="convertBtn" disabled>
+                    Convert to PDF
+                </button>
+                <button class="btn btn-secondary" id="resetBtn">
+                    Reset
+                </button>
+            </div>
+
+            <!-- Download Section -->
+            <div class="download-section" id="downloadSection" style="display: none;">
+                <div class="success-message">
+                    <span class="checkmark">✓</span>
+                    Conversion completed successfully!
+                </div>
+                <button class="btn btn-download" id="downloadBtn">
+                    📥 Download PDF
+                </button>
+            </div>
+        </section>
+<div id="docPreview"
+     style="
+        width:850px;
+        background:white;
+        margin:auto;
+">
+</div>
+    </main>
+
+    <!-- FOOTER (Demo code - to be customized) -->
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 Tools Suite. All rights reserved.</p>
+            <ul>
+                <li><a href="#privacy">Privacy Policy</a></li>
+                <li><a href="#terms">Terms of Service</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Load libraries in correct order -->
+     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://unpkg.com/docx-preview@0.3.3/dist/docx-preview.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
